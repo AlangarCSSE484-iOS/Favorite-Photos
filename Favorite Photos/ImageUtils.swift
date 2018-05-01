@@ -7,21 +7,16 @@
 //
 
 import UIKit
+import Kingfisher 
 
 class ImageUtils: NSObject {
     
     static func load(imageView: UIImageView, from url: String) {
         if let imgUrl = URL(string: url) {
-            DispatchQueue.global().async {
-                do {
-                    let data = try Data(contentsOf: imgUrl)
-                    DispatchQueue.main.async {
-                        imageView.image = UIImage(data: data)
-                    }
-                } catch {
-                    print("Error downloading image: \(error.localizedDescription)") 
-                }
-            }
+            
+            imageView.kf.setImage(with: imgUrl)
+            
+
         }
     }
 
