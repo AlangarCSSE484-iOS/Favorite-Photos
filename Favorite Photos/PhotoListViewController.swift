@@ -10,11 +10,9 @@ import UIKit
 
 class PhotoListViewController: UIViewController {
     
-    @IBOutlet weak var imageView: UIImageView!
     
-    @IBOutlet weak var progressView: UIProgressView!
-    @IBAction func takePhoto(_ sender: Any) {
-    }
+    let photoCellIdentifier = "PhotoCell"
+ 
     
     override func viewDidLoad() {
         super.viewDidLoad()
