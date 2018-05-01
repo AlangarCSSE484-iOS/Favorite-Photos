@@ -15,6 +15,7 @@
 		0A315B6520976E6E00BB943E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 0A315B6420976E6D00BB943E /* GoogleService-Info.plist */; };
 		0A315B672097719B00BB943E /* FavoritePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A315B662097719B00BB943E /* FavoritePhotoViewController.swift */; };
 		0A315B69209771BD00BB943E /* PhotoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A315B68209771BD00BB943E /* PhotoListViewController.swift */; };
+		0A315B6B2098BBF600BB943E /* ImageUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0A315B6A2098BBF600BB943E /* ImageUtils.swift */; };
 		185E5AA8E2DCF1A9FA6A9593 /* Pods_Favorite_Photos.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 10B512F95CE357744DCDAD0B /* Pods_Favorite_Photos.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		0A315B6420976E6D00BB943E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		0A315B662097719B00BB943E /* FavoritePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritePhotoViewController.swift; sourceTree = "<group>"; };
 		0A315B68209771BD00BB943E /* PhotoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoListViewController.swift; sourceTree = "<group>"; };
+		0A315B6A2098BBF600BB943E /* ImageUtils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageUtils.swift; sourceTree = "<group>"; };
 		10B512F95CE357744DCDAD0B /* Pods_Favorite_Photos.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Favorite_Photos.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		1CD78F68B29E819EE7998839 /* Pods-Favorite Photos.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite Photos.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Favorite Photos/Pods-Favorite Photos.debug.xcconfig"; sourceTree = "<group>"; };
 		A075FE0BF55938B4FB54023D /* Pods-Favorite Photos.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Favorite Photos.release.xcconfig"; path = "Pods/Target Support Files/Pods-Favorite Photos/Pods-Favorite Photos.release.xcconfig"; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 				0A315B5E20976D1100BB943E /* Info.plist */,
 				0A315B662097719B00BB943E /* FavoritePhotoViewController.swift */,
 				0A315B68209771BD00BB943E /* PhotoListViewController.swift */,
+				0A315B6A2098BBF600BB943E /* ImageUtils.swift */,
 			);
 			path = "Favorite Photos";
 			sourceTree = "<group>";
@@ -231,6 +234,7 @@
 				0A315B5520976D0F00BB943E /* ViewController.swift in Sources */,
 				0A315B69209771BD00BB943E /* PhotoListViewController.swift in Sources */,
 				0A315B672097719B00BB943E /* FavoritePhotoViewController.swift in Sources */,
+				0A315B6B2098BBF600BB943E /* ImageUtils.swift in Sources */,
 				0A315B5320976D0F00BB943E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
