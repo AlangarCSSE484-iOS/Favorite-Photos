@@ -27,6 +27,7 @@ class FavoritePhotoViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        progressView.progress = 0
         photoListener = photoDocRef.addSnapshotListener({ (snapshot, error) in
             if let error = error {
                 print ("Error getting firestore docuemtn \(error.localizedDescription)")
