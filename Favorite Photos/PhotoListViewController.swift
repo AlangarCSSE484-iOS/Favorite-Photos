@@ -9,13 +9,10 @@
 import UIKit
 import Firebase
 
-class PhotoListViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
+class PhotoListViewController: ImagePickerViewController, UICollectionViewDataSource, UICollectionViewDelegate {
     
     
     @IBOutlet weak var collectionView: UICollectionView!
-    @IBAction func takePhoto(_ sender: Any) {
-        
-    }
     let photoCellIdentifier = "PhotoCell"
     var dataSnapshots = [DocumentSnapshot]()
  
@@ -40,6 +37,10 @@ class PhotoListViewController: UIViewController, UICollectionViewDataSource, UIC
         
         return cell
         
+    }
+    
+    override func uploadImage(_ image: UIImage) {
+        print("TODO: upload image")
     }
     
     

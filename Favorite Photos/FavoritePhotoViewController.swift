@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class FavoritePhotoViewController: UIViewController {
+class FavoritePhotoViewController: ImagePickerViewController {
     
 
     @IBOutlet weak var imageView: UIImageView!
@@ -47,28 +47,12 @@ class FavoritePhotoViewController: UIViewController {
         }
     }
     
-    //takePhot - func
-    @IBAction func takePhoto(_ sender: Any) {
-        let imagePicker = UIImagePickerController()
-        imagePicker.delegate = self
-        
-        if UIImagePickerController.isSourceTypeAvailable(UIImagePickerControllerSourceType.camera){
-            imagePicker.sourceType = .camera
-        } else {
-            imagePicker.sourceType = .photoLibrary
-        }
-        
-        present(imagePicker, animated:true)
-    }
-    
-
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-    func uploadImage(_ image: UIImage) {
+    override func uploadImage(_ image: UIImage) {
         guard let data = UIImageJPEGRepresentation(image, 0.5) else { return }
         
         let uploadMetadata = StorageMetadata()
@@ -107,23 +91,4 @@ class FavoritePhotoViewController: UIViewController {
 
 
 
-//MARK: UIIMagePicker controller delegate methods
-extension FavoritePhotoViewController: UINavigationControllerDelegate, UIImagePickerControllerDelegate {
-    
-    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
-        picker.dismiss(animated: true)
-    }
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        if let image = info [UIImagePickerControllerOriginalImage] as? UIImage {
-            //TODO: Upload the data to storage, dislay AFTER the storage save is done
-            //self.imageView.image = image //CHEAT. TODO: Delete this line
-            
-            uploadImage(image)
-        
-        }
-        picker.dismiss(animated: true)
-        
-    }
-    
-}
+
