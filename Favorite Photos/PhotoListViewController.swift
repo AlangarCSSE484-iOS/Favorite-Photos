@@ -15,11 +15,26 @@ class PhotoListViewController: ImagePickerViewController, UICollectionViewDataSo
     @IBOutlet weak var collectionView: UICollectionView!
     let photoCellIdentifier = "PhotoCell"
     var dataSnapshots = [DocumentSnapshot]()
+    
+    var photosStorageRef: StorageReference!
+    var photosCollectionRef: CollectionReference!
+    var photosListener: ListenerRegistration!
  
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        photosStorageRef = Storage.storage().reference(withPath: "photos")
+        photosCollectionRef = Firestore.firestore().collection("photos")
 
+    }
+    
+    //MARK: LISTENER - TODO
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -40,7 +55,35 @@ class PhotoListViewController: ImagePickerViewController, UICollectionViewDataSo
     }
     
     override func uploadImage(_ image: UIImage) {
-        print("TODO: upload image")
+        guard let data = ImageUtils.resize(image: image) else { return }
+        let uploadMetadata = StorageMetadata()
+        uploadMetadata.contentType = "image/jpeg"
+        
+        let photoDocumentRef = photosCollectionRef.document()
+        let photoStorageRef = photosStorageRef.child(photoDocumentRef.documentID)
+        
+        
+        photoStorageRef.putData(
+        data, metadata: uploadMetadata) {
+            (metadata, error) in
+            if let error = error {
+                print("Error with upload \(error.localizedDescription)")
+                return
+            }
+        }
+        
+        photoStorageRef.downloadURL(completion: { (url, error) in
+            if let error = error {
+                print ("Error getting the download url. \(error.localizedDescription)")
+            }
+            if let url = url {
+                print ("Saving the url \(url.absoluteString)")
+                photoDocumentRef.setData(["url" : url.absoluteString,
+                                          "caption": "Best photo ever",
+                                          "created": Date()])
+            }
+        })
+        
     }
     
     
