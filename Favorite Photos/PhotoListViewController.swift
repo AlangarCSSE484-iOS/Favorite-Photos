@@ -13,6 +13,9 @@ class PhotoListViewController: UIViewController, UICollectionViewDataSource, UIC
     
     
     @IBOutlet weak var collectionView: UICollectionView!
+    @IBAction func takePhoto(_ sender: Any) {
+        
+    }
     let photoCellIdentifier = "PhotoCell"
     var dataSnapshots = [DocumentSnapshot]()
  

@@ -68,8 +68,8 @@ class FavoritePhotoViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func uploadImage(_ data: Data?) {
-        guard let data = data else { return }
+    func uploadImage(_ image: UIImage) {
+        guard let data = UIImageJPEGRepresentation(image, 0.5) else { return }
         
         let uploadMetadata = StorageMetadata()
         uploadMetadata.contentType = "image/jpeg"
@@ -119,7 +119,7 @@ extension FavoritePhotoViewController: UINavigationControllerDelegate, UIImagePi
             //TODO: Upload the data to storage, dislay AFTER the storage save is done
             //self.imageView.image = image //CHEAT. TODO: Delete this line
             
-            uploadImage(UIImageJPEGRepresentation(image, 0.5))
+            uploadImage(image)
         
         }
         picker.dismiss(animated: true)
